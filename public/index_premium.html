@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlanCraft Pakistan - Professional Business Plans</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #ec4899;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --success: #10b981;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-btn {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .admin-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .btn-secondary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: var(--white);
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+
+        /* PACKAGES SECTION */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .package {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+            position: relative;
+        }
+
+        .package:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .package.featured {
+            border-top-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .package h3 {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .package ul {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .package li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .package li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .package li:last-child {
+            border-bottom: none;
+        }
+
+        /* FORM SECTION */
+        .form-container {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 16px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .back-btn {
+            padding: 10px 20px;
+            background: #f3f4f6;
+            color: var(--dark);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #e5e7eb;
+        }
+
+        /* ORDER SUMMARY */
+        .order-summary {
+            background: linear-gradient(135deg, #f0f9ff 0%, #faf5ff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .order-summary p {
+            margin: 10px 0;
+            color: var(--dark);
+        }
+
+        .order-summary strong {
+            color: var(--primary);
+        }
+
+        /* PAYMENT INFO */
+        .payment-info {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .payment-info h4 {
+            color: #b45309;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .payment-info p {
+            color: #92400e;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .contact h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+
+        /* ADMIN */
+        .admin-login {
+            max-width: 450px;
+            margin: 80px auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .admin-login h2 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .admin-login input {
+            margin-bottom: 20px;
+        }
+
+        .admin-dashboard {
+            padding: 40px 0;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .dashboard-header h2 {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .orders-list {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        }
+
+        .order-card {
+            border: 2px solid #e5e7eb;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            background: #f9fafb;
+            transition: all 0.3s ease;
+        }
+
+        .order-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .order-card strong {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .order-card p {
+            margin: 10px 0;
+            color: var(--gray);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .status-completed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .logout-btn {
+            background: #ef4444;
+            color: var(--white);
+            padding: 10px 25px;
+        }
+
+        .logout-btn:hover {
+            background: #dc2626;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .admin-login {
+                padding: 30px;
+                margin: 40px 20px;
+            }
+
+            .packages {
+                grid-template-columns: 1fr;
+            }
+
+            .package.featured {
+                transform: scale(1);
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="container">
+            <div class="logo">📋 PlanCraft Pakistan</div>
+            <button class="admin-btn" onclick="goToAdmin()">Admin Access</button>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="container">
+            <div class="hero">
+                <h1>Transform Your Business Idea Into Reality</h1>
+                <p>Professional AI-powered business plans crafted for Pakistani entrepreneurs</p>
+                <button class="btn btn-primary" onclick="showPage('order')">Start Your Plan Today</button>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2 style="color: var(--dark); font-size: 32px; margin-bottom: 10px;">Choose Your Package</h2>
+                <p style="color: var(--gray); font-size: 18px;">Everything you need to impress investors and launch successfully</p>
+            </div>
+
+            <div class="packages">
+                <div class="package">
+                    <h3>Starter</h3>
+                    <div class="price">Rs. 15,000</div>
+                    <ul>
+                        <li>Executive Summary</li>
+                        <li>5-Year Financial Projections</li>
+                        <li>Market Analysis</li>
+                        <li>Basic Business Strategy</li>
+                        <li>Delivery in 24 hours</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;" onclick="selectPackage('starter')">Select Plan</button>
+                </div>
+
+                <div class="package featured">
+                    <div style="position: absolute; top: -15px; left: 20px; background: var(--secondary); color: var(--white); padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 700;">POPULAR</div>
+                    <h3>Professional</h3>
+                    <div class="price">Rs. 35,000</div>
+                    <ul>
+                        <li>Everything in Starter</li>
+                        <li>Detailed Financial Models</li>
+                        <li>Competitive Analysis</li>
+                        <li>Risk Assessment</li>
+                        <li>Operations & Marketing Plan</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;" onclick="selectPackage('professional')">Select Plan</button>
+                </div>
+
+                <div class="package">
+                    <h3>Premium</h3>
+                    <div class="price">Rs. 60,000</div>
+                    <ul>
+                        <li>Everything in Professional</li>
+                        <li>Investor Pitch Deck</li>
+                        <li>Professional Video Summary</li>
+                        <li>Quarterly Reviews (1 Year)</li>
+                        <li>Business Consultation</li>
+                        <li>24/7 Priority Support</li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%; margin-top: 20px;" onclick="selectPackage('premium')">Select Plan</button>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>Questions? We're Here to Help</h3>
+                <p>📱 WhatsApp: <strong style="font-size: 18px;">03282493302</strong></p>
+                <p>💳 Payment: EasyPaisa • JazzCash • Bank Transfer</p>
+                <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">Bank Alfalah Account: 06601009967606</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER PAGE -->
+    <div id="order" class="page">
+        <div class="container">
+            <button class="back-btn" onclick="showPage('home')">← Back</button>
+            
+            <div class="form-container">
+                <h2>Tell Us About Your Business</h2>
+                <form onsubmit="handleOrderSubmit(event)">
+                    <div class="form-group">
+                        <label>Business Name *</label>
+                        <input type="text" id="businessName" placeholder="e.g., TechHub Solutions" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Full Name *</label>
+                        <input type="text" id="ownerName" placeholder="e.g., Ahmed Ali" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" id="email" placeholder="e.g., ahmed@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="e.g., 03001234567" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Business Type *</label>
+                        <select id="businessType" required>
+                            <option value="">Select your business type...</option>
+                            <option value="retail">Retail & E-Commerce</option>
+                            <option value="services">Services & Consulting</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="tech">Technology & Software</option>
+                            <option value="food">Food & Beverage</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Your Package *</label>
+                        <select id="packageType" required>
+                            <option value="">Choose a package...</option>
+                            <option value="starter">Starter - Rs. 15,000</option>
+                            <option value="professional">Professional - Rs. 35,000</option>
+                            <option value="premium">Premium - Rs. 60,000</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-secondary" style="width: 100%; padding: 16px; font-size: 16px;">Continue to Payment →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAYMENT PAGE -->
+    <div id="payment" class="page">
+        <div class="container">
+            <button class="back-btn" onclick="showPage('home')">← Back Home</button>
+            
+            <div class="form-container">
+                <h2>Complete Your Order</h2>
+                
+                <div class="order-summary" id="orderSummary"></div>
+
+                <div class="payment-info">
+                    <h4>🎯 Payment Instructions</h4>
+                    <p>💚 <strong>EasyPaisa:</strong> 03282493302 (Abdullah Atif)</p>
+                    <p>💜 <strong>JazzCash:</strong> 03282493302 (Abdullah Atif)</p>
+                    <p>🏦 <strong>Bank Transfer:</strong> Bank Alfalah - 06601009967606</p>
+                    <p style="margin-top: 15px; font-size: 14px;"><em>Please send the payment and enter your transaction reference below</em></p>
+                </div>
+
+                <form onsubmit="handlePaymentSubmit(event)">
+                    <div class="form-group">
+                        <label>Transaction Reference ID *</label>
+                        <input type="text" id="transactionRef" placeholder="e.g., EAS123456 or reference number" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success" style="width: 100%; padding: 16px; font-size: 16px;">✓ Confirm & Place Order</button>
+                </form>
+
+                <p style="text-align: center; color: var(--gray); margin-top: 20px; font-size: 14px;">We'll contact you within 24 hours to confirm your order</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN LOGIN PAGE -->
+    <div id="admin-login" class="page">
+        <button class="back-btn" onclick="showPage('home')" style="margin-left: 20px; margin-top: 20px;">← Back</button>
+        
+        <div class="admin-login">
+            <h2>Admin Portal</h2>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" onkeypress="if(event.key==='Enter') handleAdminLogin()">
+            <button class="btn btn-primary" style="width: 100%; padding: 14px;" onclick="handleAdminLogin()">Access Dashboard</button>
+        </div>
+    </div>
+
+    <!-- ADMIN DASHBOARD PAGE -->
+    <div id="admin-dashboard" class="page">
+        <div class="dashboard-header">
+            <h2>📊 Admin Dashboard</h2>
+            <button class="btn btn-danger" onclick="handleAdminLogout()">Logout</button>
+        </div>
+
+        <div class="container">
+            <div class="orders-list">
+                <h3 style="color: var(--primary); margin-bottom: 30px;">Recent Orders</h3>
+                <div id="ordersList" style="text-align: center; color: var(--gray); padding: 60px 20px;">
+                    <p style="font-size: 18px;">📭 No orders yet</p>
+                    <p style="font-size: 14px; margin-top: 10px;">Orders will appear here when customers place them</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function selectPackage(packageType) {
+            document.getElementById('packageType').value = packageType;
+            showPage('order');
+        }
+
+        function goToAdmin() {
+            showPage('admin-login');
+        }
+
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            
+            window.currentOrder = {
+                businessName: document.getElementById('businessName').value,
+                ownerName: document.getElementById('ownerName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                businessType: document.getElementById('businessType').value,
+                packageType: document.getElementById('packageType').value
+            };
+
+            const prices = {
+                'starter': 'Rs. 15,000',
+                'professional': 'Rs. 35,000',
+                'premium': 'Rs. 60,000'
+            };
+
+            document.getElementById('orderSummary').innerHTML = `
+                <p><strong>Business Name:</strong> ${window.currentOrder.businessName}</p>
+                <p><strong>Owner:</strong> ${window.currentOrder.ownerName}</p>
+                <p><strong>Email:</strong> ${window.currentOrder.email}</p>
+                <p><strong>Phone:</strong> ${window.currentOrder.phone}</p>
+                <p style="margin-top: 15px; border-top: 2px solid rgba(0,0,0,0.1); padding-top: 15px;">
+                    <strong>Package:</strong> ${window.currentOrder.packageType.charAt(0).toUpperCase() + window.currentOrder.packageType.slice(1)}<br>
+                    <span style="font-size: 24px; color: var(--primary); font-weight: 700;">
+                        ${prices[window.currentOrder.packageType]}
+                    </span>
+                </p>
+            `;
+
+            showPage('payment');
+        }
+
+        function handlePaymentSubmit(event) {
+            event.preventDefault();
+            
+            const transactionRef = document.getElementById('transactionRef').value;
+            
+            alert(`✅ Order Placed Successfully!\n\n📋 Business: ${window.currentOrder.businessName}\n💳 Transaction: ${transactionRef}\n\n⏰ We will contact you within 24 hours\n📱 WhatsApp: 03282493302`);
+            
+            document.getElementById('orderSummary').innerHTML = '';
+            document.getElementById('transactionRef').value = '';
+            document.getElementById('businessName').value = '';
+            document.getElementById('ownerName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('packageType').value = '';
+            
+            showPage('home');
+        }
+
+        function handleAdminLogin() {
+            const password = document.getElementById('adminPassword').value;
+            
+            if (password === 'plancraft2024') {
+                showPage('admin-dashboard');
+                document.getElementById('adminPassword').value = '';
+                
+                document.getElementById('ordersList').innerHTML = `
+                    <div class="order-card">
+                        <strong>🎯 Sample Order</strong>
+                        <p>Business: TechHub Solutions</p>
+                        <p>Owner: Ahmed Ali | Phone: 03001234567</p>
+                        <p>Package: Professional (Rs. 35,000)</p>
+                        <span class="status-badge status-pending">PENDING</span>
+                    </div>
+                `;
+            } else {
+                alert('❌ Incorrect password. Please try again.');
+            }
+        }
+
+        function handleAdminLogout() {
+            showPage('home');
+            document.getElementById('ordersList').innerHTML = '';
+            document.getElementById('adminPassword').value = '';
+        }
+    </script>
+</body>
+</html>
